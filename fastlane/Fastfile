@@ -1,0 +1,39 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+
+  # -----------------------
+  # before all lanes
+  # -----------------------
+  before_all do |lane|
+    sh("if [ -d ../reports ]; then rm -Rf ../reports; fi")
+    sh("if [ -f *.xml ]; then rm -f *.xml; fi")
+  end
+
+  # -----------------------
+  # lanes
+  # -----------------------
+  lane :tests do
+    spm(
+      command: "test",
+      build_path: "reports",
+      configuration: "debug"
+    )
+  end
+
+  lane :build do
+    tests
+  end
+end
