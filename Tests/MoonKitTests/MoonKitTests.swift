@@ -24,11 +24,72 @@ import XCTest
 @testable import MoonKit
 
 final class MoonKitTests: XCTestCase {
-  func testExample() {
-    
+
+  // MARK: - Properties
+  static var allTests = [
+    ("testMoonPhaseNew", testMoonPhaseNew),
+  ]
+
+  // MARK: - Private Methods
+  private func getMoon(_ date: String) -> Moon {
+    let date = date.toDate
+    let moon = Moon(date)
+    return moon
   }
 
-  static var allTests = [
-    ("testExample", testExample),
-  ]
+  // MARK: - Tests
+  func testMoonPhaseNew() {
+    let moon = getMoon("02-24-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .new)
+  }
+
+  func testMoonPhaseWaxingCrescent() {
+    let moon = getMoon("02-26-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .waxingCrescent)
+  }
+
+  func testMoonPhaseFirstQuarter() {
+    let moon = getMoon("02-1-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .firstQuarter)
+  }
+
+  func testMoonPhaseWaxingGibbous() {
+    let moon = getMoon("02-2-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .waxingGibbous)
+  }
+
+  func testMoonPhaseFull() {
+    let moon = getMoon("02-9-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .full)
+  }
+
+  func testMoonPhaseWaningGibbous() {
+    let moon = getMoon("02-11-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .waningGibbous)
+  }
+
+  func testMoonPhaseLastQuarter() {
+    let moon = getMoon("02-16-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .lastQuarter)
+  }
+
+  func testMoonPhaseWaningCrescent() {
+    let moon = getMoon("02-17-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .waningCrescent)
+  }
+
+  func testMoonPhaseDark() {
+    let moon = getMoon("02-23-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .dark)
+  }
+}
+
+// MARK: - Extensions
+fileprivate extension String {
+  var toDate: Date {
+    let formatter = DateFormatter()
+    formatter.calendar = .current
+    formatter.dateFormat = "MM-dd-yyyy HH:mm"
+    return formatter.date(from: self)!
+  }
 }
