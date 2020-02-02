@@ -1,7 +1,7 @@
 # MoonKit
 
 [![GitHub release](https://img.shields.io/github/release/thejohnlima/MoonKit.svg)](https://github.com/thejohnlima/MoonKit/releases)
-[![Build Status](https://travis-ci.com/thejohnlima/MoonKit.svg?token=HzevNmMEwiqbuyePKWyP&branch=master)](https://travis-ci.com/thejohnlima/MoonKit)
+[![CI](https://github.com/thejohnlima/MoonKit/workflows/CI/badge.svg)](https://github.com/thejohnlima/MoonKit/actions)
 [![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=flat)](https://cocoapods.org/pods/MoonKit)
 [![GitHub repo size](https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg)](https://github.com/thejohnlima/MoonKit)
 [![License](https://img.shields.io/github/license/thejohnlima/MoonKit.svg)](https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE)
