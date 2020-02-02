@@ -22,7 +22,7 @@
 
 import Foundation
 
-final class Moon {
+public class Moon {
 
   private typealias ShortDate = (year: Double, month: Double, day: Double)
 
@@ -35,7 +35,6 @@ final class Moon {
   private var month: Int
   private var day: Int
   private var phase: Phase?
-  private(set) var info = Info()
 
   // Related to month length and age calculations
   private let n28 = 28
@@ -46,21 +45,23 @@ final class Moon {
     return [n31, n28, n31, n30, n31, n30, n31, n31, n30, n31, n30, n31]
   }
 
+  public var info = Info()
+
   // MARK: - Enums
-  enum Phase: String {
+  public enum Phase: String {
     case new = "New Moon"
     case waxingCrescent = "Waxing Crescent"
     case firstQuarter = "First Quarter"
     case waxingGibbous = "Waxing Gibbous"
     case full = "Full Moon"
     case waningGibbous = "Waning Gibbous"
-    case thirdQuarter = "Third Quarter"
+    case lastQuarter = "Last Quarter"
     case waningCrescent = "Waning Crescent"
     case dark = "Dark Moon"
   }
 
   // MARK: - Structs
-  struct Info {
+  public struct Info {
     var age: Double?
     var distance: Double?
     var phase: Moon.Phase?
@@ -71,7 +72,7 @@ final class Moon {
   }
 
   // MARK: - Initializers
-  init(_ date: Date) {
+  public init(_ date: Date) {
     year = Calendar.current.component(.year, from: date)
     month = Calendar.current.component(.month, from: date)
     day = Calendar.current.component(.day, from: date)
@@ -169,7 +170,7 @@ final class Moon {
     } else if age < 22 {
       phase = .waningGibbous
     } else if age == 22 {
-      phase = .thirdQuarter
+      phase = .lastQuarter
     } else if age < 29 {
       phase = .waningCrescent
     } else {
