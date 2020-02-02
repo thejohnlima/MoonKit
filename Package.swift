@@ -24,7 +24,7 @@ let package = Package(
     ),
     .testTarget(
       name: "MoonKitTests",
-      dependencies: ["MoonKitKit"]
+      dependencies: ["MoonKit"]
     )
   ]
 )
