@@ -62,13 +62,13 @@ public class Moon {
 
   // MARK: - Structs
   public struct Info {
-    var age: Double?
-    var distance: Double?
-    var phase: Moon.Phase?
-    var latitude: Double?
-    var longitude: Double?
+    public var age: Double?
+    public var distance: Double?
+    public var phase: Moon.Phase?
+    public var latitude: Double?
+    public var longitude: Double?
 
-    init() {}
+    public init() {}
   }
 
   // MARK: - Initializers
