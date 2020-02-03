@@ -86,7 +86,7 @@ public class Moon {
     info.longitude = doRound(eclipticLongitude)
 
     if !isDayOfMonth((Double(year), Double(month), Double(day))) {
-      assertionFailure("⚠️ invalid date")
+      print("⚠️ MoonKit - Invalid Date")
     }
   }
 
