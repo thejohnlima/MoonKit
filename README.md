@@ -1,12 +1,13 @@
 # MoonKit
 
-[![GitHub release](https://img.shields.io/github/release/thejohnlima/MoonKit.svg)](https://github.com/thejohnlima/MoonKit/releases)
-[![CI](https://github.com/thejohnlima/MoonKit/workflows/CI/badge.svg)](https://github.com/thejohnlima/MoonKit/actions)
-[![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=flat)](https://cocoapods.org/pods/MoonKit)
-[![GitHub repo size](https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg)](https://github.com/thejohnlima/MoonKit)
-[![License](https://img.shields.io/github/license/thejohnlima/MoonKit.svg)](https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/MoonKit.svg?style=flat)](https://developer.apple.com/ios/)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/thejohnlima)
+[![GitHub release](https://img.shields.io/github/v/release/thejohnlima/MoonKit?style=for-the-badge)](https://github.com/thejohnlima/MoonKit/releases)
+[![CI](https://img.shields.io/github/workflow/status/thejohnlima/MoonKit/CI/master?style=for-the-badge)](https://github.com/thejohnlima/MoonKit/actions)
+[![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=for-the-badge)](https://cocoapods.org/pods/MoonKit)
+[![GitHub repo size](https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg?style=for-the-badge)](https://github.com/thejohnlima/MoonKit)
+[![License](https://img.shields.io/github/license/thejohnlima/MoonKit.svg?style=for-the-badge)](https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/MoonKit?style=for-the-badge)](https://developer.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-5-blue.svg?style=for-the-badge)](https://developer.apple.com/swift/)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/thejohnlima)
 
 🌗 **MoonKit** Is a short framework to get information about the moon
 
