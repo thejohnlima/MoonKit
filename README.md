@@ -52,8 +52,8 @@ let date = Date()
 let moon = Moon(date)
 let info = moon.info
 
-print(info.phase) // Example: Waxing Gibbous
-print(info.age) // Example: 8.31
+print(info.phase) // Example: Full Moon
+print(info.age) // Example: 15
 ```
 
 ## 🙋🏻‍ Communication
