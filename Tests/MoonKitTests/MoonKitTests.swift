@@ -44,7 +44,7 @@ final class MoonKitTests: XCTestCase {
   }
 
   func testMoonPhaseWaxingCrescent() {
-    let moon = getMoon("02-26-2020 18:00")
+    let moon = getMoon("01-31-2020 18:00")
     XCTAssertEqual(moon.info.phase, .waxingCrescent)
   }
 
