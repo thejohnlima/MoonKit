@@ -1,12 +1,28 @@
-# MoonKit
+<h1 align="center">MoonKit</h1>
 
-[![GitHub release](https://img.shields.io/github/v/release/thejohnlima/MoonKit?style=for-the-badge)](https://github.com/thejohnlima/MoonKit/releases)
-[![CI](https://img.shields.io/github/workflow/status/thejohnlima/MoonKit/CI/master?style=for-the-badge)](https://github.com/thejohnlima/MoonKit/actions)
-[![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=for-the-badge)](https://cocoapods.org/pods/MoonKit)
-[![GitHub repo size](https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg?style=for-the-badge)](https://github.com/thejohnlima/MoonKit)
-[![License](https://img.shields.io/github/license/thejohnlima/MoonKit.svg?style=for-the-badge)](https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/MoonKit?style=for-the-badge)](https://developer.apple.com/ios/)
-[![Swift](https://img.shields.io/badge/Swift-5-blue.svg?style=for-the-badge)](https://developer.apple.com/swift/)
+<p align="center">
+ <a href="https://github.com/thejohnlima/MoonKit/releases">
+  <img src="https://img.shields.io/github/v/release/thejohnlima/MoonKit?style=for-the-badge">
+ </a>
+ <a href="https://github.com/thejohnlima/MoonKit/actions">
+  <img src="https://img.shields.io/github/workflow/status/thejohnlima/MoonKit/CI/master?style=for-the-badge">
+ </a>
+ <a href="https://cocoapods.org/pods/MoonKit">
+  <img src="https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=for-the-badge">
+ </a>
+ <a href="https://github.com/thejohnlima/MoonKit">
+  <img src="https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg?style=for-the-badge">
+ </a>
+ <a href="https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE">
+  <img src="https://img.shields.io/github/license/thejohnlima/MoonKit.svg?style=for-the-badge">
+ </a>
+ <a href="https://developer.apple.com/ios/">
+  <img src="https://img.shields.io/cocoapods/p/MoonKit?style=for-the-badge">
+ </a>
+ <a href="https://developer.apple.com/swift/">
+  <img src="https://img.shields.io/badge/Swift-5-blue.svg?style=for-the-badge">
+ </a>
+</p>
 
 🌗 **MoonKit** Is a short framework to get information about the moon
 
