@@ -7,7 +7,6 @@
 [![License](https://img.shields.io/github/license/thejohnlima/MoonKit.svg?style=for-the-badge)](https://raw.githubusercontent.com/thejohnlima/MoonKit/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/MoonKit?style=for-the-badge)](https://developer.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-5-blue.svg?style=for-the-badge)](https://developer.apple.com/swift/)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/thejohnlima)
 
 🌗 **MoonKit** Is a short framework to get information about the moon
 
