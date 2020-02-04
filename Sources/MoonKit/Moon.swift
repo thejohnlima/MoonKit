@@ -145,9 +145,13 @@ public class Moon {
   /// Calculate moon's age in days
   /// - Parameters:
   ///   - dates: Dates in Julian calendar or Gregorian calendar
-  private func getAgeInDays(_ dates: Double) -> (age: Double, ip: Double) {
+  ///   - date: The current date components
+  private func getAgeInDays(_ dates: Double, date: ShortDate) -> (age: Double, ip: Double) {
     let ip = normalize((dates - 2451550.1) / 29.530588853)
-    let age = ip * 29.53
+    var age = ip * 29.53
+    if isLeap(year: date.year) {
+      age -= 1
+    }
     return (age, ip)
   }
 
@@ -221,17 +225,12 @@ public class Moon {
     let dayValue = Double(day)
     let julianDate = getJulianDate((yearValue, monthValue, dayValue))
     let dates = getCalendarDates((julianDate.year, month: julianDate.month, day: julianDate.day))
-    let age = getAgeInDays(dates)
+    let age = getAgeInDays(dates, date: (yearValue, monthValue, dayValue))
     var ip = age.ip
 
-    var ageValue: Double {
-      guard isLeap(year: yearValue), monthValue == 2 else { return age.age }
-      return age.age - 1
-    }
+    self.age = age.age
 
-    self.age = ageValue
-
-    preparePhase(ageValue)
+    preparePhase(age.age)
 
     // Convert phase to radians
     ip = ip * 2 * Double.pi
