@@ -9,7 +9,7 @@
  </a>
  <a href="https://cocoapods.org/pods/MoonKit">
   <img src="https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=for-the-badge">
- </a>
+ </a><br>
  <a href="https://github.com/thejohnlima/MoonKit">
   <img src="https://img.shields.io/github/repo-size/thejohnlima/MoonKit.svg?style=for-the-badge">
  </a>
