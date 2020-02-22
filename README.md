@@ -22,6 +22,9 @@
  <a href="https://developer.apple.com/swift/">
   <img src="https://img.shields.io/badge/Swift-5-blue.svg?style=for-the-badge">
  </a>
+ <a href="https://patreon.com/thejohnlima">
+  <img src="https://img.shields.io/badge/donate-patreon-yellow.svg?style=for-the-badge">
+ </a>
 </p>
 
 🌗 **MoonKit** Is a short framework to get information about the moon
