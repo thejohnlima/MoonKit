@@ -15,4 +15,4 @@ jobs:
     - name: Xcode version
       run: sudo xcode-select -s /Applications/Xcode.app
     - name: Build
-      run: bundle install; bundle exec fastlane build
+      run: bundle install; bundle update; bundle exec fastlane build

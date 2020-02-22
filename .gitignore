@@ -22,6 +22,13 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
+## Other
+.DS_Store
+.DS_Store?
+.vscode
+coverage
+Gemfile.lock
+
 ## Obj-C/Swift specific
 *.hmap
 
@@ -39,13 +46,12 @@ playground.xcworkspace
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
-# Package.resolved
+Package.resolved
 # *.xcodeproj
 #
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
 # .swiftpm
-
 .build/
 
 # CocoaPods
@@ -76,11 +82,12 @@ Dependencies/
 # Instead, use fastlane to re-generate the screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
-
-fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+fastlane/screenshots
+fastlane/README.md
+report.xml
+test_output
+reports
 
 # Code Injection
 #
