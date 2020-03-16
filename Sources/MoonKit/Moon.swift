@@ -27,14 +27,12 @@ public class Moon {
   private typealias ShortDate = (year: Double, month: Double, day: Double)
 
   // MARK: - Properties
-  private var age: Double?
   private var distance: Double = 0
   private var eclipticLatitude: Double = 0
   private var eclipticLongitude: Double = 0
   private var year: Int
   private var month: Int
   private var day: Int
-  private var phase: Phase?
 
   // Related to month length and age calculations
   private let n28 = 28
@@ -49,24 +47,24 @@ public class Moon {
 
   // MARK: - Enums
   public enum Phase: String {
-    case new = "New Moon"
+    case newMoon = "New Moon"
     case waxingCrescent = "Waxing Crescent"
     case firstQuarter = "First Quarter"
     case waxingGibbous = "Waxing Gibbous"
-    case full = "Full Moon"
+    case fullMoon = "Full Moon"
     case waningGibbous = "Waning Gibbous"
     case lastQuarter = "Last Quarter"
     case waningCrescent = "Waning Crescent"
-    case dark = "Dark Moon"
   }
 
   // MARK: - Structs
   public struct Info {
-    public var age: Double?
-    public var distance: Double?
-    public var phase: Moon.Phase?
-    public var latitude: Double?
-    public var longitude: Double?
+    public var age: Double!
+    public var distance: Double!
+    public var phase: Moon.Phase!
+    public var latitude: Double!
+    public var longitude: Double!
+    public var isLeapYear: Bool!
 
     public init() {}
   }
@@ -79,14 +77,17 @@ public class Moon {
 
     preparePosition(year, month: month, day: day)
 
-    info.age = doRound(age!)
+    let age = getAge(date)
+
+    info.age = age
+    info.phase = getPhase(age)
     info.distance = doRound(distance)
-    info.phase = phase
     info.latitude = doRound(eclipticLatitude)
     info.longitude = doRound(eclipticLongitude)
+    info.isLeapYear = isLeap(year: Double(year))
 
     if !isDayOfMonth((Double(year), Double(month), Double(day))) {
-      print("⚠️ MoonKit - Invalid Date")
+      print("⚠️ MoonKit - Invalid date")
     }
   }
 
@@ -155,33 +156,6 @@ public class Moon {
     return (age, ip)
   }
 
-  /// Preparing the phase using the moon's age
-  /// - Parameters:
-  ///   - age: The moon's age
-  private func preparePhase(_ age: Double) {
-    let age = Int(ceil(age))
-
-    if age < 1 {
-      phase = .new
-    }else if age < 7 {
-      phase = .waxingCrescent
-    } else if age == 7 {
-      phase = .firstQuarter
-    } else if age < 15 {
-      phase = .waxingGibbous
-    } else if age == 15 {
-      phase = .full
-    } else if age < 22 {
-      phase = .waningGibbous
-    } else if age == 22 {
-      phase = .lastQuarter
-    } else if age < 29 {
-      phase = .waningCrescent
-    } else {
-      phase = .dark
-    }
-  }
-
   /// Calculate moon's distance
   /// - Parameters:
   ///   - julianDates: Julian dates
@@ -227,10 +201,6 @@ public class Moon {
     let dates = getCalendarDates((julianDate.year, month: julianDate.month, day: julianDate.day))
     let age = getAgeInDays(dates, date: (yearValue, monthValue, dayValue))
     var ip = age.ip
-
-    self.age = age.age
-
-    preparePhase(age.age)
 
     // Convert phase to radians
     ip = ip * 2 * Double.pi
@@ -282,5 +252,85 @@ public class Moon {
     }
 
     return false
+  }
+
+  /// Calculate Julian Date
+  /// - Parameter date: Date used to calculate Julian Date
+  /// ```
+  /// let date = "03/09/2020".toDate()
+  /// let julianDate = getJulian(date)
+  /// // The result will be 2458918
+  /// ```
+  private func getJulian(_ date: Date) -> Double {
+    let year = Double(Calendar.current.component(.year, from: date))
+    let month = Double(Calendar.current.component(.month, from: date))
+    let day = Double(Calendar.current.component(.day, from: date))
+    let yy = year - floor((12 - month) / 10)
+    var mm = month + 9
+
+    if mm >= 12 {
+      mm = mm - 12
+    }
+
+    let k1 = floor(365.25 * (yy + 4712))
+    let k2 = floor(30.6001 * mm + 0.5)
+    let k3 = floor(floor((yy / 100) + 49) * 0.75) - 38
+    var julian = k1 + k2 + day + 59
+
+    if julian > 2299160 {
+      julian = julian - k3
+    }
+
+    return julian
+  }
+
+  /// Calculate moon's age using a date
+  /// - Parameter date: Date used to calculate moon's age
+  /// ```
+  /// let date = "03/09/2020".toDate()
+  /// let age = getAge(date)
+  /// // The age will be 14, a New Moon
+  /// ```
+  private func getAge(_ date: Date) -> Double {
+    let K1: Double = 29.53059
+
+    let julianDate = getJulian(date)
+
+    var ip = (julianDate + 4.867) / K1
+    ip = ip - floor(ip)
+
+    var age = ip * K1 - K1 / 2
+
+    if ip < 0.5 {
+      age = ip * K1 + K1 / 2
+    } else {
+      age = ip * K1 - K1 / 2
+    }
+
+    return round(age)
+  }
+
+  /// Get moon's phase using moon's age
+  /// - Parameters:
+  ///   - age: Moon's age
+  private func getPhase(_ age: Double) -> Phase {
+    if age < 2 {
+      return .newMoon
+    }else if age < 7 {
+      return .waxingCrescent
+    } else if age < 9 {
+      return .firstQuarter
+    } else if age < 14 {
+      return .waxingGibbous
+    } else if age < 15 {
+      return .fullMoon
+    } else if age < 21 {
+      return .waningGibbous
+    } else if age < 23 {
+      return .lastQuarter
+    } else if age < 29 {
+      return .waningCrescent
+    }
+    return .newMoon
   }
 }
