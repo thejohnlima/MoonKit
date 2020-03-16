@@ -72,7 +72,8 @@ let moon = Moon(date)
 let info = moon.info
 
 print(info.phase) // Example: Full Moon
-print(info.age) // Example: 15
+print(info.age) // Example: 14
+print(info.isLeapYear) // Example: true
 ```
 
 ## 🙋🏻‍ Communication

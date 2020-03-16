@@ -39,8 +39,8 @@ final class MoonKitTests: XCTestCase {
 
   // MARK: - Tests
   func testMoonPhaseNew() {
-    let moon = getMoon("02-24-2020 18:00")
-    XCTAssertEqual(moon.info.phase, .new)
+    let moon = getMoon("02-25-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .newMoon)
   }
 
   func testMoonPhaseWaxingCrescent() {
@@ -54,13 +54,13 @@ final class MoonKitTests: XCTestCase {
   }
 
   func testMoonPhaseWaxingGibbous() {
-    let moon = getMoon("02-2-2020 18:00")
+    let moon = getMoon("03-08-2020 18:00")
     XCTAssertEqual(moon.info.phase, .waxingGibbous)
   }
 
   func testMoonPhaseFull() {
-    let moon = getMoon("02-9-2020 18:00")
-    XCTAssertEqual(moon.info.phase, .full)
+    let moon = getMoon("03-9-2020 18:00")
+    XCTAssertEqual(moon.info.phase, .fullMoon)
   }
 
   func testMoonPhaseWaningGibbous() {
@@ -80,7 +80,17 @@ final class MoonKitTests: XCTestCase {
 
   func testMoonPhaseDark() {
     let moon = getMoon("02-23-2020 18:00")
-    XCTAssertEqual(moon.info.phase, .dark)
+    XCTAssertEqual(moon.info.phase, .newMoon)
+  }
+
+  func testIfIsLeapYear() {
+    let result = getMoon("02-01-2020 18:00")
+    XCTAssertTrue(result.info.isLeapYear)
+  }
+
+  func testIfIsNotLeapYear() {
+    let result = getMoon("02-01-2021 18:00")
+    XCTAssertFalse(result.info.isLeapYear)
   }
 }
 
