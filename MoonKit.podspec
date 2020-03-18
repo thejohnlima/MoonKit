@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = "MoonKit"
-  s.version            = "1.0.4"
+  s.version            = "1.0.5"
   s.summary            = "MoonKit is a short framework to get information about the moon"
   s.requires_arc       = true
   s.homepage           = "https://github.com/thejohnlima/MoonKit"
